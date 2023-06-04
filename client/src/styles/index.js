@@ -22,8 +22,8 @@ const styles = {
 
   // battleground page
   battlegroundContainer: 'min-h-screen bg-landing flex-col py-12 px-4',
-  battleGroundsWrapper: 'flex-wrap mt-10 max-w-[1200px]',
-  battleGroundCard: 'sm:w-[420px] w-full h-[260px] p-2 glass-morphism m-4 rounded-lg cursor-pointer battle-card',
+  battleGroundsWrapper: 'md:flex-wrap flex-row mt-10 max-w-[1200px]',
+  battleGroundCard: 'sm:w-[350px] w-full h-[190px] p-2 glass-morphism m-4 rounded-lg cursor-pointer battle-card',
   battleGroundCardImg: 'w-full h-full object-cover rounded-md',
   battleGroundCardText: 'font-rajdhani font-semibold text-2xl text-white',
 

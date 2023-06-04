@@ -18,12 +18,12 @@ const Card = ({card, title, restStyles, playerTwo, cardRef}) => {
         />
 
         <div
-          className={`${styles.cardPointContainer} md:left-[26.2%] left-[26%] bottom-[30%] ${styles.flexCenter}`}
+          className={`${styles.cardPointContainer} md:left-[26.2%] left-[26%] bottom-[29%] ${styles.flexCenter}`}
         >
           <p className={`${styles.cardPoint} text-yellow-400`}> {card.att} </p>
         </div>
         <div
-          className={`${styles.cardPointContainer} md:right-[20.2%] right-[21.5%] bottom-[30%] ${styles.flexCenter}`}
+          className={`${styles.cardPointContainer} md:right-[20.2%] right-[21.5%] bottom-[29%] ${styles.flexCenter}`}
         >
           <p className={`${styles.cardPoint} text-red-700`}> {card.def} </p>
         </div>

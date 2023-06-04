@@ -6,7 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { ethers } from "ethers";
-import Web3Modal from "web3modal";
+import Web3Modal, { local } from "web3modal";
 import { useNavigate } from "react-router-dom";
 import { ABI, ADDRESS } from "../contract";
 import { createEventsListeners } from "./createEventsListeners";
@@ -40,6 +40,17 @@ export const GlobalContextProvider = ({ children }) => {
     });
     if (accounts) setWalletAddress(accounts[0]);
   };
+
+  useEffect(() => {
+    const localStorageBackground = localStorage.getItem('battleground')
+
+    if (localStorageBackground) {
+
+      setBattleGround(localStorageBackground);
+    } else {
+      localStorage.setItem('battleground', battleGround)
+    }
+  }, [])
 
   useEffect(() => {
     updateCurrentWalletAddress();
