@@ -62,13 +62,7 @@ const Battle = () => {
           health: p1H,
           mana: p1M,
         });
-        setPlayer2({
-          ...player02,
-          att: "X",
-          def: "X",
-          health: p2H,
-          mana: p2M,
-        });
+        setPlayer2({ ...player02, att: "X", def: "X", health: p2H, mana: p2M });
       } catch (error) {
         console.log(error);
       }
@@ -76,6 +70,11 @@ const Battle = () => {
 
     if (contract && gameData.activeBattle) getPlayerInfo();
   }, [contract, gameData, battleName]);
+
+  useEffect(() => {
+    console.log('Player1 : ', player1);
+    console.log('Player2 :', player2);
+  },[setPlayer1, setPlayer2])
 
   return (
     <div
@@ -97,8 +96,8 @@ const Battle = () => {
           />
 
           <Card
-            card={player2}
-            title={player2?.playerName}
+            card={player1}
+            title={player1?.playerName}
             cardRef=""
             restStyles="mt-3"
           />
@@ -111,7 +110,7 @@ const Battle = () => {
         </div>
       </div>
 
-      <PlayerInfo player={player1} playerIcon={player01Icon} mt />
+      <PlayerInfo player={player1} playerIcon={player01Icon} />
 
       <GameInfo />
     </div>

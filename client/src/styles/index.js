@@ -41,12 +41,12 @@ const styles = {
   playerInfoSpan: 'font-extrabold text-white',
 
   // card component
-  cardContainer: 'relative sm:w-[260px] w-[220px] sm:h-[335px] h-[280px] z-0 transition-all',
+  cardContainer: 'relative w-[200px] h-[200px]  z-0 transition-all',
   cardImg: 'w-full h-full object-contain',
-  cardPointContainer: 'absolute sm:w-[40px] w-[32px] sm:h-[40px] h-[32px] rounded-[25px] bottom-[31.4%]',
-  cardPoint: 'font-rajdhani text-[20px] font-bold',
+  cardPointContainer: 'absolute sm:w-[30px] w-[28px] sm:h-[30px] h-[28px] rounded-[25px] bottom-[31.4%]',
+  cardPoint: 'font-rajdhani text-[15px] font-bold',
   cardTextContainer: 'absolute w-full bottom-[13.5%] left-3',
-  cardText: 'font-rajdhani text-[26px] font-bold text-white',
+  cardText: 'font-rajdhani text-[20px] font-bold text-white',
 
   // custom button component
   btn: 'px-4 py-2 rounded-lg bg-siteViolet w-fit text-white font-rajdhani font-bold',
