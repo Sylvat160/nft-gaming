@@ -22,6 +22,8 @@ const Battle = () => {
     setShowAlert,
     battleGround,
     setErrorMessage,
+    player1Ref,
+    player2Ref,
   } = useGlobalContext();
   const [player1, setPlayer1] = useState({});
   const [player2, setPlayer2] = useState({});
@@ -40,6 +42,7 @@ const Battle = () => {
         message : `Initiating ${move === 1 ? 'attack' : 'defense'}`
       })
     } catch (error) {
+      console.log(error);
       setErrorMessage(error);
     }
   }
@@ -103,7 +106,12 @@ const Battle = () => {
 
       <PlayerInfo player={player2} playerIcon={player02Icon} mt />
       <div className={`${styles.flexCenter} flex-col my-10`}>
-        <Card card={player2} title={player2?.playerName} cardRef="" playerTwo />
+        <Card
+          card={player2}
+          title={player2?.playerName}
+          cardRef={player2Ref}
+          playerTwo
+        />
 
         <div className="flex items-center flex-row">
           <ActionButton
@@ -115,7 +123,7 @@ const Battle = () => {
           <Card
             card={player1}
             title={player1?.playerName}
-            cardRef=""
+            cardRef={player1Ref}
             restStyles="mt-3"
           />
 

@@ -9,7 +9,7 @@ import { ethers } from "ethers";
 import Web3Modal, { local } from "web3modal";
 import { useNavigate } from "react-router-dom";
 import { ABI, ADDRESS } from "../contract";
-import { createEventsListeners } from "./createEventsListeners";
+import { createEventListeners } from "./createEventsListeners";
 import { GetParams } from "../utils/onboard";
 
 const GlobalContext = createContext();
@@ -35,6 +35,9 @@ export const GlobalContextProvider = ({ children }) => {
   const [step, setStep] = useState(1);
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate();
+
+  const player1Ref = useRef()
+  const player2Ref = useRef()
 
   //* set the wallet the address
   const updateCurrentWalletAddress = async () => {
@@ -93,13 +96,16 @@ export const GlobalContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (step !== -1 && contract) {
-      createEventsListeners({
+      createEventListeners({
         navigate,
         contract,
         provider,
         walletAddress,
         setShowAlert,
         setUpdateGameData,
+        player1Ref,
+        player2Ref,
+        updateCurrentWalletAddress,
       });
     }
   }, [contract, step]);
@@ -174,6 +180,8 @@ export const GlobalContextProvider = ({ children }) => {
         setBattleGround,
         errorMessage,
         setErrorMessage,
+        player1Ref,
+        player2Ref,
       }}
     >
       {children}
