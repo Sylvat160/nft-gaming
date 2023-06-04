@@ -35,7 +35,7 @@ const OnboardModal = () => {
         return (
           <>
             <p className={styles.modalText}>
-              You don't have Core Wallet installed!
+              You don't have Core or Metasmask Wallet installed!
             </p>
             <CustomButton
               title="Download Core"
