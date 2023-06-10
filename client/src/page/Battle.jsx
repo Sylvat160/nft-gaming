@@ -48,6 +48,14 @@ const Battle = () => {
   }
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      if(!gameData?.activeBattle) navigate('/')
+    }, [2000]);
+    
+    return () => clearTimeout(timer);
+  }, [player1, player2]);
+
+  useEffect(() => {
     const getPlayerInfo = async () => {
       try {
         let player01Address = null;
