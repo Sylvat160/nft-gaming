@@ -34,7 +34,9 @@ const Battle = () => {
     playAudio(move === 1 ? attackSound : defenseSound)
 
     try {
-      await contract.attackOrDefendChoice(move, battleName);
+      await contract.attackOrDefendChoice(move, battleName, {
+        gasLimit : 200000
+      });
 
       setShowAlert({
         status : true,
@@ -51,7 +53,7 @@ const Battle = () => {
     const timer = setTimeout(() => {
       if(!gameData?.activeBattle) navigate('/')
     }, [2000]);
-    
+
     return () => clearTimeout(timer);
   }, [player1, player2]);
 

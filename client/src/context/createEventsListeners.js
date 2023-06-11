@@ -66,6 +66,8 @@ export const createEventListeners = ({ navigate, contract, provider, walletAddre
     }
   });
 
+  
+
   const BattleMoveEventFilter = contract.filters.BattleMove();
   AddNewEvent(BattleMoveEventFilter, provider, ({ args }) => {
     console.log('Battle move initiated!', args);
@@ -101,4 +103,5 @@ export const createEventListeners = ({ navigate, contract, provider, walletAddre
 
     navigate('/create-battle');
   });
+
 };

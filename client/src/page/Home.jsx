@@ -4,16 +4,24 @@ import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const { contract, walletAddress, setShowAlert } = useGlobalContext();
+  const { contract, walletAddress, setShowAlert, gameData } = useGlobalContext();
   const [playerName, setPlayerName] = useState('');
   const navigate = useNavigate();
+
+   useEffect(() => {
+     if (gameData.activeBattle) {
+       navigate(`/battle/${gameData.activeBattle.name}`);
+     }
+   }, [gameData]);
 
   const handleClick = async () => {
     try {
       const playerExists =  await contract.isPlayer(walletAddress);
       
       if (!playerExists) {
-        await contract.registerPlayer(playerName, playerName);
+        await contract.registerPlayer(playerName, playerName, {
+          gasLimit: 200000,
+        });
         setShowAlert({status: true, type : 'info', message : `${playerName} is being summoned`});
         setPlayerName('');
       }
